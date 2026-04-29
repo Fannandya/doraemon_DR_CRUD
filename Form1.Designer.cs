@@ -200,6 +200,7 @@
             this.dgvData.RowTemplate.Height = 24;
             this.dgvData.Size = new System.Drawing.Size(673, 483);
             this.dgvData.TabIndex = 14;
+            this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellClick);
             // 
             // bindingNavigator1
             // 
@@ -329,6 +330,7 @@
             this.btnInsert.TabIndex = 17;
             this.btnInsert.Text = "Insert";
             this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnDelete
             // 
@@ -338,6 +340,7 @@
             this.btnDelete.TabIndex = 18;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnLoad
             // 
@@ -347,6 +350,7 @@
             this.btnLoad.TabIndex = 19;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // btnUpdate
             // 
@@ -356,6 +360,7 @@
             this.btnUpdate.TabIndex = 20;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnConnect
             // 
@@ -365,6 +370,7 @@
             this.btnConnect.TabIndex = 21;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // label7
             // 
@@ -403,6 +409,7 @@
             this.Controls.Add(this.txtNIM);
             this.Name = "Form1";
             this.Text = "CRUD Mahasiswa";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
