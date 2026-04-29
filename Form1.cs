@@ -90,4 +90,122 @@ namespace CRUDMahasiswa
             }
         }
 
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+                if (txtNIM.Text == "")
+                {
+                    MessageBox.Show("NIM tidak boleh kosong!");
+                    txtNIM.Focus();
+                    return;
+                }
+
+                if (txtNama.Text == "")
+                {
+                    MessageBox.Show("Nama tidak boleh kosong!");
+                    txtNama.Focus();
+                    return;
+                }
+
+                if (cmbJK.Text == "")
+                {
+                    MessageBox.Show("Jenis Kelamin tidak boleh kosong!");
+                    cmbJK.Focus();
+                    return;
+                }
+
+                if (txtKodeProdi.Text == "")
+                {
+                    MessageBox.Show("Kode Prodi tidak boleh kosong!");
+                    txtKodeProdi.Focus();
+                    return;
+                }
+
+                string query = @"INSERT INTO Mahasiswa
+                                (NIM, Nama, JenisKelamin, TanggalLahir, Alamat, KodeProdi) 
+                                VALUES 
+                                (@NIM, @Nama, @JenisKelamin, @TanggalLahir, @Alamat, @KodeProdi)";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@NIM", txtNIM.Text);
+                cmd.Parameters.AddWithValue("@Nama", txtNama.Text);
+                cmd.Parameters.AddWithValue("@JenisKelamin", cmbJK.Text);
+                cmd.Parameters.AddWithValue("@TanggalLahir", dtpTL.Value);
+                cmd.Parameters.AddWithValue("@Alamat", txtAlamat.Text);
+                cmd.Parameters.AddWithValue("@KodeProdi", txtKodeProdi.Text);
+                cmd.Parameters.AddWithValue("@TanggalDaftar", DateTime.Now);
+
+                int result = cmd.ExecuteNonQuery();
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Data berhasil ditambahkan!");
+                    ClearForm();
+                    btnLoad.PerformClick();
+                }
+                else
+                {
+                    MessageBox.Show("Gagal menambahkan data!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal menambahkan data: " + ex.Message);
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+                string query = @"UPDATE Mahasiswa SET 
+                                Nama = @Nama, 
+                                JenisKelamin = @JenisKelamin, 
+                                TanggalLahir = @TanggalLahir, 
+                                Alamat = @Alamat, 
+                                KodeProdi = @KodeProdi
+                                WHERE NIM = @NIM";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@NIM", txtNIM.Text);
+                cmd.Parameters.AddWithValue("@Nama", txtNama.Text);
+                cmd.Parameters.AddWithValue("@JenisKelamin", cmbJK.Text);
+                cmd.Parameters.AddWithValue("@TanggalLahir", dtpTL.Value);
+                cmd.Parameters.AddWithValue("@Alamat", txtAlamat.Text);
+                cmd.Parameters.AddWithValue("@KodeProdi", txtKodeProdi.Text);
+
+                int result = cmd.ExecuteNonQuery();
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Data berhasil diperbarui!");
+                    ClearForm();
+                    btnLoad.PerformClick();
+                }
+                else
+                {
+                    MessageBox.Show("Gagal memperbarui data!");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
 }
