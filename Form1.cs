@@ -261,4 +261,15 @@ namespace CRUDMahasiswa
             }
         }
 
+        private void ClearForm()
+        {
+            txtNIM.Clear();
+            txtNama.Clear();
+            cmbJK.SelectedIndex = -1;
+            dtpTL.Value = DateTime.Now;
+            txtAlamat.Clear();
+            txtKodeProdi.Clear();
+        }
+
+    }
 }
