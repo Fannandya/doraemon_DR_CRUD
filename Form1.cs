@@ -271,5 +271,19 @@ namespace CRUDMahasiswa
             txtKodeProdi.Clear();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cmbJK.Items.Clear();
+            cmbJK.Items.Add("L");
+            cmbJK.Items.Add("P");
+
+            dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvData.MultiSelect = false;
+            dgvData.ReadOnly = true;
+            dgvData.AllowUserToAddRows = false;
+            dgvData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvData.CellClick += dgvData_CellClick;
+        }
     }
 }
