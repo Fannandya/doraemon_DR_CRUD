@@ -65,6 +65,8 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnResetData = new System.Windows.Forms.Button();
+            this.btnTestInjection = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
@@ -75,9 +77,10 @@
             // txtNIM
             // 
             this.txtNIM.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource, "NIM", true));
-            this.txtNIM.Location = new System.Drawing.Point(202, 127);
+            this.txtNIM.Location = new System.Drawing.Point(227, 159);
+            this.txtNIM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNIM.Name = "txtNIM";
-            this.txtNIM.Size = new System.Drawing.Size(200, 22);
+            this.txtNIM.Size = new System.Drawing.Size(224, 26);
             this.txtNIM.TabIndex = 0;
             // 
             // mahasiswaBindingSource
@@ -99,78 +102,81 @@
             // txtKodeProdi
             // 
             this.txtKodeProdi.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource, "KodeProdi", true));
-            this.txtKodeProdi.Location = new System.Drawing.Point(202, 244);
+            this.txtKodeProdi.Location = new System.Drawing.Point(227, 305);
+            this.txtKodeProdi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtKodeProdi.Name = "txtKodeProdi";
-            this.txtKodeProdi.Size = new System.Drawing.Size(200, 22);
+            this.txtKodeProdi.Size = new System.Drawing.Size(224, 26);
             this.txtKodeProdi.TabIndex = 2;
             // 
             // txtNama
             // 
             this.txtNama.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource, "Nama", true));
-            this.txtNama.Location = new System.Drawing.Point(202, 155);
+            this.txtNama.Location = new System.Drawing.Point(227, 194);
+            this.txtNama.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNama.Name = "txtNama";
-            this.txtNama.Size = new System.Drawing.Size(200, 22);
+            this.txtNama.Size = new System.Drawing.Size(224, 26);
             this.txtNama.TabIndex = 4;
             // 
             // txtAlamat
             // 
             this.txtAlamat.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource, "Alamat", true));
-            this.txtAlamat.Location = new System.Drawing.Point(202, 272);
+            this.txtAlamat.Location = new System.Drawing.Point(227, 340);
+            this.txtAlamat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAlamat.Name = "txtAlamat";
-            this.txtAlamat.Size = new System.Drawing.Size(200, 22);
+            this.txtAlamat.Size = new System.Drawing.Size(224, 26);
             this.txtAlamat.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 133);
+            this.label1.Location = new System.Drawing.Point(83, 166);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 16);
+            this.label1.Size = new System.Drawing.Size(38, 20);
             this.label1.TabIndex = 6;
             this.label1.Text = "NIM";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(74, 194);
+            this.label2.Location = new System.Drawing.Point(83, 242);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 16);
+            this.label2.Size = new System.Drawing.Size(106, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "Jenis Kelamin";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(73, 222);
+            this.label3.Location = new System.Drawing.Point(82, 278);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 16);
+            this.label3.Size = new System.Drawing.Size(105, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "Tanggal Lahir";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(73, 250);
+            this.label4.Location = new System.Drawing.Point(82, 312);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 16);
+            this.label4.Size = new System.Drawing.Size(86, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Kode Prodi";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(74, 161);
+            this.label5.Location = new System.Drawing.Point(83, 201);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 16);
+            this.label5.Size = new System.Drawing.Size(51, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Nama";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(73, 278);
+            this.label6.Location = new System.Drawing.Point(82, 348);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 16);
+            this.label6.Size = new System.Drawing.Size(59, 20);
             this.label6.TabIndex = 11;
             this.label6.Text = "Alamat";
             // 
@@ -178,27 +184,30 @@
             // 
             this.cmbJK.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource, "JenisKelamin", true));
             this.cmbJK.FormattingEnabled = true;
-            this.cmbJK.Location = new System.Drawing.Point(202, 186);
+            this.cmbJK.Location = new System.Drawing.Point(227, 232);
+            this.cmbJK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbJK.Name = "cmbJK";
-            this.cmbJK.Size = new System.Drawing.Size(200, 24);
+            this.cmbJK.Size = new System.Drawing.Size(224, 28);
             this.cmbJK.TabIndex = 12;
             // 
             // dtpTL
             // 
             this.dtpTL.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource, "TanggalLahir", true));
-            this.dtpTL.Location = new System.Drawing.Point(202, 216);
+            this.dtpTL.Location = new System.Drawing.Point(227, 270);
+            this.dtpTL.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpTL.Name = "dtpTL";
-            this.dtpTL.Size = new System.Drawing.Size(200, 22);
+            this.dtpTL.Size = new System.Drawing.Size(224, 26);
             this.dtpTL.TabIndex = 13;
             // 
             // dgvData
             // 
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvData.Location = new System.Drawing.Point(488, 41);
+            this.dgvData.Location = new System.Drawing.Point(549, 51);
+            this.dgvData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvData.Name = "dgvData";
             this.dgvData.RowHeadersWidth = 51;
             this.dgvData.RowTemplate.Height = 24;
-            this.dgvData.Size = new System.Drawing.Size(673, 483);
+            this.dgvData.Size = new System.Drawing.Size(757, 604);
             this.dgvData.TabIndex = 14;
             this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellClick);
             // 
@@ -228,7 +237,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(1216, 27);
+            this.bindingNavigator1.Size = new System.Drawing.Size(1368, 31);
             this.bindingNavigator1.TabIndex = 15;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -238,13 +247,13 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 26);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 26);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -254,7 +263,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 26);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -263,7 +272,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 26);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -272,13 +281,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 26);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -286,14 +295,14 @@
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(56, 31);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -301,7 +310,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 26);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -310,13 +319,13 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 26);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // mahasiswaTableAdapter
             // 
@@ -324,9 +333,10 @@
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(71, 358);
+            this.btnInsert.Location = new System.Drawing.Point(80, 448);
+            this.btnInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(107, 44);
+            this.btnInsert.Size = new System.Drawing.Size(120, 55);
             this.btnInsert.TabIndex = 17;
             this.btnInsert.Text = "Insert";
             this.btnInsert.UseVisualStyleBackColor = true;
@@ -334,9 +344,10 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(297, 358);
+            this.btnDelete.Location = new System.Drawing.Point(334, 448);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(107, 44);
+            this.btnDelete.Size = new System.Drawing.Size(120, 55);
             this.btnDelete.TabIndex = 18;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -344,9 +355,10 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(71, 409);
+            this.btnLoad.Location = new System.Drawing.Point(80, 511);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(107, 44);
+            this.btnLoad.Size = new System.Drawing.Size(120, 55);
             this.btnLoad.TabIndex = 19;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
@@ -354,9 +366,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(184, 358);
+            this.btnUpdate.Location = new System.Drawing.Point(207, 448);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(107, 44);
+            this.btnUpdate.Size = new System.Drawing.Size(120, 55);
             this.btnUpdate.TabIndex = 20;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -364,9 +377,10 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(184, 409);
+            this.btnConnect.Location = new System.Drawing.Point(207, 511);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(107, 44);
+            this.btnConnect.Size = new System.Drawing.Size(120, 55);
             this.btnConnect.TabIndex = 21;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -376,17 +390,39 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(45, 60);
+            this.label7.Location = new System.Drawing.Point(51, 75);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(403, 32);
+            this.label7.Size = new System.Drawing.Size(456, 38);
             this.label7.TabIndex = 22;
             this.label7.Text = "Silahkan isi form dibawah ini";
             // 
+            // btnResetData
+            // 
+            this.btnResetData.Location = new System.Drawing.Point(334, 511);
+            this.btnResetData.Name = "btnResetData";
+            this.btnResetData.Size = new System.Drawing.Size(117, 55);
+            this.btnResetData.TabIndex = 23;
+            this.btnResetData.Text = "Reset";
+            this.btnResetData.UseVisualStyleBackColor = true;
+            this.btnResetData.Click += new System.EventHandler(this.btnResetData_Click);
+            // 
+            // btnTestInjection
+            // 
+            this.btnTestInjection.Location = new System.Drawing.Point(210, 573);
+            this.btnTestInjection.Name = "btnTestInjection";
+            this.btnTestInjection.Size = new System.Drawing.Size(117, 55);
+            this.btnTestInjection.TabIndex = 24;
+            this.btnTestInjection.Text = "Test Injection";
+            this.btnTestInjection.UseVisualStyleBackColor = true;
+            this.btnTestInjection.Click += new System.EventHandler(this.btnTestInjection_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1216, 557);
+            this.ClientSize = new System.Drawing.Size(1368, 696);
+            this.Controls.Add(this.btnTestInjection);
+            this.Controls.Add(this.btnResetData);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.btnUpdate);
@@ -407,6 +443,7 @@
             this.Controls.Add(this.txtNama);
             this.Controls.Add(this.txtKodeProdi);
             this.Controls.Add(this.txtNIM);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "CRUD Mahasiswa";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -458,6 +495,8 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnResetData;
+        private System.Windows.Forms.Button btnTestInjection;
     }
 }
 
