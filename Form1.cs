@@ -72,15 +72,10 @@ namespace CRUDMahasiswa
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    conn.Open();
-
-                    string query = @"INSERT INTO Mahasiswa 
-                                    (NIM, Nama, JenisKelamin, TanggalLahir, Alamat, KodeProdi, TanggalDaftar) 
-                                    VALUES 
-                                    (@NIM, @Nama, @JenisKelamin, @TanggalLahir, @Alamat, @KodeProdi, @TanggalDaftar)";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+          
+                    using (SqlCommand cmd = new SqlCommand("sp_InsertMahasiswa", conn))
                     {
+                        cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@NIM", txtNIM.Text);
                         cmd.Parameters.AddWithValue("@Nama", txtNama.Text);
                         cmd.Parameters.AddWithValue("@JenisKelamin", cmbJK.Text);
@@ -89,7 +84,9 @@ namespace CRUDMahasiswa
                         cmd.Parameters.AddWithValue("@KodeProdi", txtKodeProdi.Text);
                         cmd.Parameters.AddWithValue("@TanggalDaftar", DateTime.Now);
 
+                        conn.Open();
                         cmd.ExecuteNonQuery();
+
                     }
                 }
             }
@@ -101,85 +98,40 @@ namespace CRUDMahasiswa
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            try
+            using (SqlCommand cmd = new SqlCommand("sp_UpdateMahasiswa", conn))
             {
-                if (conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
-
-                string query = @"UPDATE Mahasiswa SET 
-                                Nama = @Nama, 
-                                JenisKelamin = @JenisKelamin, 
-                                TanggalLahir = @TanggalLahir, 
-                                Alamat = @Alamat, 
-                                KodeProdi = @KodeProdi
-                                WHERE NIM = @NIM";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@NIM", txtNIM.Text);
                 cmd.Parameters.AddWithValue("@Nama", txtNama.Text);
                 cmd.Parameters.AddWithValue("@JenisKelamin", cmbJK.Text);
                 cmd.Parameters.AddWithValue("@TanggalLahir", dtpTL.Value);
                 cmd.Parameters.AddWithValue("@Alamat", txtAlamat.Text);
                 cmd.Parameters.AddWithValue("@KodeProdi", txtKodeProdi.Text);
-
-                int result = cmd.ExecuteNonQuery();
-
-                if (result > 0)
-                {
-                    MessageBox.Show("Data berhasil diperbarui!");
-                    ClearForm();
-                    btnLoad.PerformClick();
-                }
-                else
-                {
-                    MessageBox.Show("Gagal memperbarui data!");
-                }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+                
+                conn.Open();
+                cmd.ExecuteNonQuery();
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
+            using (SqlCommand cmd = new SqlCommand("sp_DeleteMahasiswa", conn))
             {
-                if (conn.State == ConnectionState.Closed)
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@NIM", SqlDbType.Char, 11).Value = txtNIM.Text;
+
+                conn.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
                 {
-                    conn.Open();
+                    MessageBox.Show("Data berhasil dihapus!");
                 }
-
-                DialogResult resultConfirm = MessageBox.Show("Apakah Anda yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (resultConfirm == DialogResult.Yes)
+                else
                 {
-                    string query = "DELETE FROM Mahasiswa WHERE NIM = @NIM";
-
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@NIM", txtNIM.Text);
-
-                    int result = cmd.ExecuteNonQuery();
-
-                    if (result > 0)
-                    {
-                        MessageBox.Show("Data berhasil dihapus!");
-                        ClearForm();
-                        btnLoad.PerformClick();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Gagal menghapus data!");
-                    }
+                    MessageBox.Show("Data tidak ditemukan!");
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
