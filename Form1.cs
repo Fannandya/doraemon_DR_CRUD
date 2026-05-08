@@ -228,32 +228,24 @@ namespace CRUDMahasiswa
 
         private void LoadData()
         {
-            try
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand("sp_GetMahasiswa", conn))
                 {
-                    conn.Open();
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                    string query = "SELECT * FROM vwMahasiswaPublic";
-
-                    using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         dtMahasiswa = new DataTable();
                         da.Fill(dtMahasiswa);
 
                         bindingSource.DataSource = dtMahasiswa;
-
                         dgvData.DataSource = bindingSource;
-
                         BindControls();
                     }
                 }
-
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Gagal memuat data: " + ex.Message);
-            }
+            HitungTotal();
 
         }
 
@@ -353,5 +345,7 @@ namespace CRUDMahasiswa
                 MessageBox.Show("Gagal menghitung total: " + ex.Message);
             }
         }
+
+        
     }
 }
