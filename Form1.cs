@@ -213,10 +213,6 @@ namespace CRUDMahasiswa
             // combobox jk manual
             cmbJK.DataSource = new string[] { "L", "P" };
 
-            cmbJK.Items.Clear();
-            cmbJK.Items.Add("L");
-            cmbJK.Items.Add("P");
-
             // setting grid
             dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvData.MultiSelect = false;
@@ -234,11 +230,11 @@ namespace CRUDMahasiswa
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
-                    string query = "SELECT * FROM vmMahasiswaPublic";
+                    string query = "SELECT * FROM vwMahasiswaPublic";
 
                     using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
                     {
