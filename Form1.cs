@@ -331,7 +331,11 @@ namespace CRUDMahasiswa
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    string query = "UPDATE Mahasiswa SET Nama =' " + txtNama.Text + "' WHERE NIM = '" + txtNIM.Text + "'";
+                    string query = 
+                        "UPDATE Mahasiswa SET Nama ='" + 
+                        txtNama.Text + 
+                        "' WHERE NIM ='" 
+                        + txtNIM.Text + "'";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -339,7 +343,7 @@ namespace CRUDMahasiswa
 
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Query berhasil dijalankan!");
+                    MessageBox.Show("Update berhasil");
                 }   
             }
             catch (Exception ex)
