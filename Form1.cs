@@ -84,11 +84,13 @@ namespace CRUDMahasiswa
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
+            // koneksi dan transaksi
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
 
+            // mulai transaksi
             SqlTransaction trans = conn.BeginTransaction();
-
+            // transaksi untuk insert mahasiswa dan log aktivitas, jika salah satu gagal maka rollback semua
             try
             {
                 SqlCommand cmd = new SqlCommand("sp_InsertMahasiswa", conn, trans);
