@@ -33,10 +33,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnCetak = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.cmbProdi = new System.Windows.Forms.ComboBox();
+            this.dtpTanggalMasuk = new System.Windows.Forms.DateTimePicker();
+            this.dgvRekapData = new System.Windows.Forms.DataGridView();
+            this.btnKembali = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRekapData)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -77,6 +78,7 @@
             this.btnLoad.TabIndex = 3;
             this.btnLoad.Text = "Load";
             this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // btnCetak
             // 
@@ -86,40 +88,52 @@
             this.btnCetak.TabIndex = 4;
             this.btnCetak.Text = "Cetak";
             this.btnCetak.UseVisualStyleBackColor = true;
+            this.btnCetak.Click += new System.EventHandler(this.btnCetak_Click);
             // 
-            // comboBox1
+            // cmbProdi
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(155, 58);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(206, 24);
-            this.comboBox1.TabIndex = 5;
+            this.cmbProdi.FormattingEnabled = true;
+            this.cmbProdi.Location = new System.Drawing.Point(155, 58);
+            this.cmbProdi.Name = "cmbProdi";
+            this.cmbProdi.Size = new System.Drawing.Size(206, 24);
+            this.cmbProdi.TabIndex = 5;
             // 
-            // dateTimePicker1
+            // dtpTanggalMasuk
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(532, 58);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 6;
+            this.dtpTanggalMasuk.Location = new System.Drawing.Point(532, 58);
+            this.dtpTanggalMasuk.Name = "dtpTanggalMasuk";
+            this.dtpTanggalMasuk.Size = new System.Drawing.Size(200, 22);
+            this.dtpTanggalMasuk.TabIndex = 6;
             // 
-            // dataGridView1
+            // dgvRekapData
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 94);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1049, 411);
-            this.dataGridView1.TabIndex = 7;
+            this.dgvRekapData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRekapData.Location = new System.Drawing.Point(13, 94);
+            this.dgvRekapData.Name = "dgvRekapData";
+            this.dgvRekapData.RowHeadersWidth = 51;
+            this.dgvRekapData.RowTemplate.Height = 24;
+            this.dgvRekapData.Size = new System.Drawing.Size(1049, 411);
+            this.dgvRekapData.TabIndex = 7;
+            // 
+            // btnKembali
+            // 
+            this.btnKembali.Location = new System.Drawing.Point(13, 510);
+            this.btnKembali.Name = "btnKembali";
+            this.btnKembali.Size = new System.Drawing.Size(75, 23);
+            this.btnKembali.TabIndex = 8;
+            this.btnKembali.Text = "Kembali";
+            this.btnKembali.UseVisualStyleBackColor = true;
+            this.btnKembali.Click += new System.EventHandler(this.btnKembali_Click);
             // 
             // report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1074, 546);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(1074, 555);
+            this.Controls.Add(this.btnKembali);
+            this.Controls.Add(this.dgvRekapData);
+            this.Controls.Add(this.dtpTanggalMasuk);
+            this.Controls.Add(this.cmbProdi);
             this.Controls.Add(this.btnCetak);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.label3);
@@ -127,7 +141,8 @@
             this.Controls.Add(this.label1);
             this.Name = "report";
             this.Text = "report";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.report_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRekapData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,8 +155,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnCetak;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cmbProdi;
+        private System.Windows.Forms.DateTimePicker dtpTanggalMasuk;
+        private System.Windows.Forms.DataGridView dgvRekapData;
+        private System.Windows.Forms.Button btnKembali;
     }
 }

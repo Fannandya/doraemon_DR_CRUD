@@ -381,6 +381,11 @@ namespace CRUDMahasiswa
             }
         }
 
-        
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            report rptform = new report();
+            rptform.ShowDialog();
+            this.Hide();
+        }
     }
 }
