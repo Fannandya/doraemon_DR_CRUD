@@ -71,5 +71,12 @@ namespace CRUDMahasiswa
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 frm = new Form1();
+            frm.Show();
+            this.Hide();
+        }
     }
 }
