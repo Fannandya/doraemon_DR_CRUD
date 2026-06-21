@@ -19,11 +19,12 @@ namespace CRUDMahasiswa
 {
     public partial class Form1 : Form
     {
+        DAL dbLogic = new DAL();
+        private readonly SqlConnection conn;
+        private readonly string connectionString;
         private BindingSource bindingSource = new BindingSource();
         private DataTable dtMahasiswa = new DataTable();
 
-        // Dipertahankan murni objek DAL milik lo Tam!
-        DAL dbLogic = new DAL();
 
         public Form1()
         {
@@ -34,7 +35,7 @@ namespace CRUDMahasiswa
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(dbLogic.GetConnectionString()))
+                using (SqlConnection conn = new SqlConnection(DAL.GetConnectionString()))
                 {
                     conn.Open();
                     MessageBox.Show("Koneksi berhasil!");
@@ -50,7 +51,7 @@ namespace CRUDMahasiswa
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(dbLogic.GetConnectionString()))
+                using (SqlConnection conn = new SqlConnection(DAL.GetConnectionString()))
                 {
                     conn.Open();
                     MessageBox.Show("Koneksi berhasil!");
@@ -84,6 +85,8 @@ namespace CRUDMahasiswa
             {
                 byte[] ConvertImageToBytes(PictureBox pb)
                 {
+                    if (pb?.Image == null)
+                        return null;
                     using (MemoryStream ms = new MemoryStream())
                     {
                         pb.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
@@ -122,6 +125,8 @@ namespace CRUDMahasiswa
             {
                 byte[] ConvertImageToBytes(PictureBox pb)
                 {
+                    if (pb?.Image == null)
+                        return null;
                     using (MemoryStream ms = new MemoryStream())
                     {
                         pb.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
@@ -334,7 +339,6 @@ namespace CRUDMahasiswa
         {
             try
             {
-                // BENARKAN 10: Sintaksis operator ternary dikoreksi agar valid membaca angka skalar dari DAL
                 int total = dbLogic.CountMhs();
                 lblTotal.Text = "Total Mahasiswa: " + total;
             }
@@ -373,7 +377,6 @@ namespace CRUDMahasiswa
                     string filePath = ofd.FileName;
                     using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
                     {
-                        // BENARKAN SINTAKSIS EXCEL: Menggunakan 'ExcelReaderFactory' bawaan library ExcelDataReader untuk ngebaca datanya
                         using (var reader = ExcelReaderFactory.CreateReader(stream))
                         {
                             var result = reader.AsDataSet(new ExcelDataSetConfiguration()
@@ -452,7 +455,6 @@ namespace CRUDMahasiswa
 
                 MessageBox.Show("Data mahasiswa berhasil ditambahkan");
                 ClearForm();
-                // KOREKSI 11: Menambahkan tanda titik koma (;) yang kelupaan di akhir pemanggilan method LoadData
                 LoadData();
             }
             catch (SqlException ex)
@@ -465,6 +467,14 @@ namespace CRUDMahasiswa
                 SimpanLog("general error :" + ex.Message);
                 MessageBox.Show("general error: " + ex.Message);
             }
+        }
+
+        private void Kembali_Click(object sender, EventArgs e)
+        {
+            Dashboard dsbh = new Dashboard();
+            dsbh.Show();
+            this.Hide();
+
         }
     }
 }

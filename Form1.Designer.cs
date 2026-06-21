@@ -75,6 +75,7 @@
             this.btnImportFormExcel = new System.Windows.Forms.Button();
             this.btnImporttoDB = new System.Windows.Forms.Button();
             this.btnCari = new System.Windows.Forms.Button();
+            this.Kembali = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
@@ -490,11 +491,22 @@
             this.btnCari.Text = "Cari";
             this.btnCari.UseVisualStyleBackColor = true;
             // 
+            // Kembali
+            // 
+            this.Kembali.Location = new System.Drawing.Point(1130, 480);
+            this.Kembali.Name = "Kembali";
+            this.Kembali.Size = new System.Drawing.Size(181, 44);
+            this.Kembali.TabIndex = 33;
+            this.Kembali.Text = "Dashboard";
+            this.Kembali.UseVisualStyleBackColor = true;
+            this.Kembali.Click += new System.EventHandler(this.Kembali_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1378, 557);
+            this.Controls.Add(this.Kembali);
             this.Controls.Add(this.btnCari);
             this.Controls.Add(this.btnImporttoDB);
             this.Controls.Add(this.btnImportFormExcel);
@@ -587,6 +599,7 @@
         private System.Windows.Forms.Button btnImportFormExcel;
         private System.Windows.Forms.Button btnImporttoDB;
         private System.Windows.Forms.Button btnCari;
+        private System.Windows.Forms.Button Kembali;
     }
 }
 

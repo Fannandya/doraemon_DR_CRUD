@@ -12,18 +12,16 @@ namespace CRUDMahasiswa
 {
     class DAL
     {
-        private SqlConnection conn = new SqlConnection(GetConnectionString);
+        public static string GetConnectionString()
+        {
+            string connectionString = $"Data Source=tomiskibidi, 1433;Initial Catalog=DBAkademikADO;User ID=sa;Password=123;";
+            return connectionString;
+        }
+        private SqlConnection conn = new SqlConnection(GetConnectionString());
         private SqlDataAdapter da;
         private DataTable dtMahasiswa;
         private DataTable dtProdi;
 
-        
-        public static string GetConnectionString()
-        {
-            string connectionString = @"Data Source={GetLocalIPAddress()};Initial Catalog=DBAkademikADO;User ID=sa;Password=123;";
-            return connectionString;
-        }
-        
 
 
         public int CountMhs()
@@ -84,7 +82,8 @@ namespace CRUDMahasiswa
                 cmd.Parameters.AddWithValue("@TanggalLahir", tanggalLahir);
                 cmd.Parameters.AddWithValue("@JenisKelamin", jenisKelamin);
                 cmd.Parameters.AddWithValue("@KodeProdi", kodeProdi);
-                cmd.Parameters.AddWithValue("@pFoto", foto);
+                cmd.Parameters.AddWithValue("@TanggalDaftar", DateTime.Now);
+                cmd.Parameters.Add("@pFoto", SqlDbType.VarBinary).Value = (object)foto ?? DBNull.Value;
 
                 cmd.ExecuteNonQuery();
                 trans.Commit();
@@ -94,6 +93,7 @@ namespace CRUDMahasiswa
             catch (Exception ex)
             {
                 trans.Rollback();
+                throw;
             }
             finally
             {
