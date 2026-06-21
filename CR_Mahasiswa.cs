@@ -16,14 +16,14 @@ namespace CRUDMahasiswa {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class DataMahasiswa : ReportClass {
+    public class CR_Mahasiswa : ReportClass {
         
-        public DataMahasiswa() {
+        public CR_Mahasiswa() {
         }
         
         public override string ResourceName {
             get {
-                return "DataMahasiswa.rpt";
+                return "CR_Mahasiswa.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace CRUDMahasiswa {
         
         public override string FullResourceName {
             get {
-                return "CRUDMahasiswa.DataMahasiswa.rpt";
+                return "CRUDMahasiswa.CR_Mahasiswa.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace CRUDMahasiswa {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedDataMahasiswa : Component, ICachedReport {
+    public class CachedCR_Mahasiswa : Component, ICachedReport {
         
-        public CachedDataMahasiswa() {
+        public CachedCR_Mahasiswa() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace CRUDMahasiswa {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            DataMahasiswa rpt = new DataMahasiswa();
+            CR_Mahasiswa rpt = new CR_Mahasiswa();
             rpt.Site = this.Site;
             return rpt;
         }

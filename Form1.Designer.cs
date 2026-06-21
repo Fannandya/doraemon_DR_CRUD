@@ -69,11 +69,18 @@
             this.btnTestInjection = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnReport = new System.Windows.Forms.Button();
+            this.btnUploadGambar = new System.Windows.Forms.Button();
+            this.fotoMhs = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnImportFormExcel = new System.Windows.Forms.Button();
+            this.btnImporttoDB = new System.Windows.Forms.Button();
+            this.btnCari = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoMhs)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNIM
@@ -202,7 +209,7 @@
             this.dgvData.Name = "dgvData";
             this.dgvData.RowHeadersWidth = 51;
             this.dgvData.RowTemplate.Height = 24;
-            this.dgvData.Size = new System.Drawing.Size(673, 483);
+            this.dgvData.Size = new System.Drawing.Size(569, 483);
             this.dgvData.TabIndex = 14;
             this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellClick);
             // 
@@ -232,7 +239,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(1216, 27);
+            this.bindingNavigator1.Size = new System.Drawing.Size(1378, 27);
             this.bindingNavigator1.TabIndex = 15;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -427,11 +434,73 @@
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // btnUploadGambar
+            // 
+            this.btnUploadGambar.Location = new System.Drawing.Point(1130, 323);
+            this.btnUploadGambar.Name = "btnUploadGambar";
+            this.btnUploadGambar.Size = new System.Drawing.Size(181, 44);
+            this.btnUploadGambar.TabIndex = 27;
+            this.btnUploadGambar.Text = "Upload Gambar";
+            this.btnUploadGambar.UseVisualStyleBackColor = true;
+            this.btnUploadGambar.Click += new System.EventHandler(this.btnUploadGambar_Click);
+            // 
+            // fotoMhs
+            // 
+            this.fotoMhs.Location = new System.Drawing.Point(1130, 114);
+            this.fotoMhs.Name = "fotoMhs";
+            this.fotoMhs.Size = new System.Drawing.Size(181, 203);
+            this.fotoMhs.TabIndex = 28;
+            this.fotoMhs.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(297, 458);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 44);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Refresh";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnImportFormExcel
+            // 
+            this.btnImportFormExcel.Location = new System.Drawing.Point(1130, 374);
+            this.btnImportFormExcel.Name = "btnImportFormExcel";
+            this.btnImportFormExcel.Size = new System.Drawing.Size(181, 44);
+            this.btnImportFormExcel.TabIndex = 30;
+            this.btnImportFormExcel.Text = "Import Form Excel";
+            this.btnImportFormExcel.UseVisualStyleBackColor = true;
+            this.btnImportFormExcel.Click += new System.EventHandler(this.btnImportFormExcel_Click);
+            // 
+            // btnImporttoDB
+            // 
+            this.btnImporttoDB.Location = new System.Drawing.Point(1130, 423);
+            this.btnImporttoDB.Name = "btnImporttoDB";
+            this.btnImporttoDB.Size = new System.Drawing.Size(181, 44);
+            this.btnImporttoDB.TabIndex = 31;
+            this.btnImporttoDB.Text = "Import to Database";
+            this.btnImporttoDB.UseVisualStyleBackColor = true;
+            this.btnImporttoDB.Click += new System.EventHandler(this.btnImporttoDB_Click);
+            // 
+            // btnCari
+            // 
+            this.btnCari.Location = new System.Drawing.Point(409, 127);
+            this.btnCari.Name = "btnCari";
+            this.btnCari.Size = new System.Drawing.Size(54, 23);
+            this.btnCari.TabIndex = 32;
+            this.btnCari.Text = "Cari";
+            this.btnCari.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1216, 557);
+            this.ClientSize = new System.Drawing.Size(1378, 557);
+            this.Controls.Add(this.btnCari);
+            this.Controls.Add(this.btnImporttoDB);
+            this.Controls.Add(this.btnImportFormExcel);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.fotoMhs);
+            this.Controls.Add(this.btnUploadGambar);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnTestInjection);
@@ -465,6 +534,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoMhs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -511,6 +581,12 @@
         private System.Windows.Forms.Button btnTestInjection;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.Button btnUploadGambar;
+        private System.Windows.Forms.PictureBox fotoMhs;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnImportFormExcel;
+        private System.Windows.Forms.Button btnImporttoDB;
+        private System.Windows.Forms.Button btnCari;
     }
 }
 

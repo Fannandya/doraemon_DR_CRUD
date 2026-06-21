@@ -18,18 +18,19 @@ namespace CRUDMahasiswa
         SqlDataAdapter da;
         DataTable dtMahasiswa;
 
-        DataMahasiswa dataMahasiswa = new DataMahasiswa();
         string prodi { get; set; }
         DateTime tglmasuk { get; set; }
 
         public class cetakDataReport
         {
-            // Sub-class kosong dipertahankan sesuai struktur lo
+            
         }
 
         public cetakData(string Prodi, DateTime TglMasuk)
         {
             InitializeComponent();
+
+            DataMahasiswa1 = new CR_Mahasiswa();
 
             prodi = Prodi;
             tglmasuk = TglMasuk;
@@ -56,14 +57,19 @@ namespace CRUDMahasiswa
                 conn.Close();
 
                 // Inject data ke dalam Crystal Report
-                dataMahasiswa.SetDataSource(dtMahasiswa);
-                crystalReportViewer1.ReportSource = dataMahasiswa;
+                DataMahasiswa1.SetDataSource(dtMahasiswa);
+                crystalReportViewer1.ReportSource = DataMahasiswa1;
                 crystalReportViewer1.Refresh();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Gagal mengambil data: " + ex.Message);
             }
+        }
+
+        private void crystalReportViewer1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

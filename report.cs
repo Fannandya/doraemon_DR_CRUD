@@ -9,10 +9,10 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions.Windows.Forms;
 
 namespace CRUDMahasiswa
 {
-   
     public partial class report : Form
     {
         static string connectionString = "Data Source=tomiskibidi\\TAMA;Initial Catalog=DBAkademikADO;Integrated Security=True";
@@ -21,9 +21,35 @@ namespace CRUDMahasiswa
         DataTable dtMahasiswa;
         DataTable dtProdi;
 
-        public report()
+        DAL dbLogic = new DAL();
+
+        //CR_Mahasiswa dataMahasiswa = new DataMahasiswa();
+
+        // BENAHI 1: Mendeklarasikan atribut penampung parameter pembawa data agar valid dibaca di constructor bawah
+        private string prodi;
+        private DateTime tglmasuk;
+
+        // BENAHI 2: Menyediakan constructor kosong bawaan agar Desainer Visual UI lo gak ikutan crash/blank
+
+        public report(string Prodi, DateTime TglMasuk)
         {
             InitializeComponent();
+
+            prodi = Prodi;
+            tglmasuk = TglMasuk;
+
+            try
+            {
+                DataTable dtMahasiswa = dbLogic.getDataRekap(prodi, tglmasuk);
+
+                //DataMahasiswa.SetDataSource(dtMahasiswa);
+                //crystalReportViewer1.ReportSource = DataMahasiswa;
+                //crystalReportViewer1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("gagal load data: " + ex.Message);
+            }
         }
 
         private void btnKembali_Click(object sender, EventArgs e)
@@ -66,8 +92,6 @@ namespace CRUDMahasiswa
                 MessageBox.Show("Gagal mengambil data: " + ex.Message);
             }
         }
-        
-
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
@@ -104,7 +128,7 @@ namespace CRUDMahasiswa
             {
                 MessageBox.Show("Error saat memuat data report: " + ex.Message);
             }
-            
+
         }
 
         private void btnCetak_Click(object sender, EventArgs e)

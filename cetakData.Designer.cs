@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.DataMahasiswa1 = new CRUDMahasiswa.DataMahasiswa();
+            this.DataMahasiswa1 = new CRUDMahasiswa.CR_Mahasiswa();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -49,6 +49,7 @@
             this.crystalReportViewer1.Size = new System.Drawing.Size(1263, 717);
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            this.crystalReportViewer1.Load += new System.EventHandler(this.crystalReportViewer1_Load);
             // 
             // cetakData
             // 
@@ -65,6 +66,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private DataMahasiswa DataMahasiswa1;
+        private CR_Mahasiswa DataMahasiswa1;
     }
 }
