@@ -6,21 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Remoting.Messaging;
 
 namespace CRUDMahasiswa
 {
     class DAL
     {
-        static string connectionString = "Data Source=tomiskibidi\\TAMA;Initial Catalog=DBAkademikADO;Integrated Security=True";
-
-        public string GetConnectionString()
-        {
-            return connectionString;
-        }
-        private SqlConnection conn = new SqlConnection(connectionString);
+        private SqlConnection conn = new SqlConnection(GetConnectionString);
         private SqlDataAdapter da;
         private DataTable dtMahasiswa;
         private DataTable dtProdi;
+
+        
+        public static string GetConnectionString()
+        {
+            string connectionString = @"Data Source={GetLocalIPAddress()};Initial Catalog=DBAkademikADO;User ID=sa;Password=123;";
+            return connectionString;
+        }
+        
 
 
         public int CountMhs()
@@ -269,6 +272,28 @@ namespace CRUDMahasiswa
 
 
 
+        }
+
+        public static string GetLocalIPAddress()
+        {
+            string localIP = string.Empty;
+            try
+            {
+                var host = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName());
+                foreach (var ip in host.AddressList)
+                {
+                    if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                    {
+                        localIP = ip.ToString();
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error getting local IP address: " + ex.Message);
+            }
+            return localIP;
         }
     }
 }
